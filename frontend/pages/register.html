@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register | Makeup Live</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="navbar"><a class="brand" href="../index.html">Makeup Live</a></header>
+  <main class="auth-container">
+    <form class="card form" id="registerForm">
+      <h1>Create account</h1>
+      <input name="name" type="text" placeholder="Name" required />
+      <input name="email" type="email" placeholder="Email" required />
+      <input name="password" type="password" placeholder="Password" required />
+      <select name="skin_type">
+        <option value="normal">Normal skin</option>
+        <option value="dry">Dry skin</option>
+        <option value="oily">Oily skin</option>
+        <option value="mixed">Mixed skin</option>
+      </select>
+      <button class="btn primary" type="submit">Register</button>
+      <p class="form-message" id="message"></p>
+    </form>
+  </main>
+  <script src="../assets/js/api/apiClient.js"></script>
+  <script src="../assets/js/pages/register.js"></script>
+</body>
+</html>

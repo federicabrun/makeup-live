@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makeup Live</title>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a href="./index.html" class="brand">
+      <span>Makeup</span> <strong>Live</strong>
+    </a>
+
+    <nav class="nav-links">
+      <a href="./pages/tutorials.html">Tutorials</a>
+      <a href="./pages/products.html">Products</a>
+      <a href="./pages/live.html" class="active">Live</a>
+      <a href="./pages/favorites.html">Favorites</a>
+      <a href="./pages/profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero hero-premium">
+      <div class="hero-copy">
+        <p class="eyebrow">Beauty · Tutorials · Live chat</p>
+
+        <h1>
+          Learn makeup live with creators and save your favorite looks.
+        </h1>
+
+        <p class="hero-description">
+          Makeup Live combines tutorials, beauty product recommendations and real-time
+          interaction in one academic full-stack project.
+        </p>
+
+        <div class="hero-actions">
+          <a href="./pages/register.html" class="btn primary">
+            Create account <span>→</span>
+          </a>
+
+          <a href="./pages/live.html" class="btn secondary">
+            Join live session <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="pink-arch"></div>
+
+        <div class="product-stage">
+          <div class="product product-tube">
+            <span>LUMIÈRE</span>
+            <small>Glow Tint</small>
+          </div>
+
+          <div class="product product-serum">
+            <span>Radiant</span>
+            <small>Serum</small>
+          </div>
+
+          <div class="product product-cream">
+            <span>Satin</span>
+            <small>Cream</small>
+          </div>
+        </div>
+
+        <article class="live-card">
+          <div class="live-info">
+            <span class="live-pill">● Live</span>
+            <h2>Today Live</h2>
+            <p>Natural Glow Makeup Q&amp;A</p>
+
+            <div class="avatar-row">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span class="more">+128</span>
+            </div>
+
+            <a href="./pages/live.html" class="btn primary small">
+              Join now
+            </a>
+          </div>
+
+          <div class="live-photo">
+            <div class="play-button">▶</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-section">
+      <a href="./pages/tutorials.html" class="feature-card powder-card">
+        <div class="icon-circle">▷</div>
+        <h3>Tutorials</h3>
+        <p>Browse categories, levels and detail pages.</p>
+      </a>
+
+      <a href="./pages/products.html" class="feature-card product-card">
+        <div class="icon-circle">♡</div>
+        <h3>Products</h3>
+        <p>Filter by skin type, category, brand and price.</p>
+      </a>
+
+      <a href="./pages/live.html" class="feature-card chat-card">
+        <div class="icon-circle">💬</div>
+        <h3>Real time</h3>
+        <p>Chat, reactions and live notifications using Socket.IO.</p>
+      </a>
+    </section>
+
+    <section class="benefit-strip">
+      <div>☆ Learn from top creators</div>
+      <div>💬 Live Q&amp;A and real-time chat</div>
+      <div>♡ Save your favorite looks</div>
+    </section>
+  </main>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>

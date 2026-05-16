@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live Sessions | Makeup Live</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
+
+    <nav class="nav-links">
+      <a href="./tutorials.html">Tutorials</a>
+      <a href="./products.html">Products</a>
+      <a href="./live.html" class="active">Live</a>
+      <a href="./favorites.html">Favorites</a>
+      <a href="./profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1>Live Sessions</h1>
+
+    <section class="grid" id="liveGrid"></section>
+
+    <section class="live-room card" id="liveRoom" style="display: none;">
+      <h2 id="liveTitle">Live Room</h2>
+
+      <div class="video-placeholder">
+        Live video area
+      </div>
+
+      <div id="notifications" class="notifications"></div>
+
+      <div id="chatMessages" class="chat"></div>
+
+      <form id="chatForm" class="chat-form">
+        <input id="chatInput" placeholder="Write a message..." />
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+
+      <div class="reactions">
+        <button data-emoji="💄">💄</button>
+        <button data-emoji="✨">✨</button>
+        <button data-emoji="😍">😍</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="http://localhost:4000/socket.io/socket.io.js"></script>
+  <script src="../assets/js/api/apiClient.js"></script>
+  <script src="../assets/js/classes/LiveSession.js"></script>
+  <script src="../assets/js/classes/NotificationManager.js"></script>
+  <script src="../assets/js/pages/live.js"></script>
+</body>
+</html>

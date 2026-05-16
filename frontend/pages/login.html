@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | Makeup Live</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="navbar"><a class="brand" href="../index.html">Makeup Live</a></header>
+  <main class="auth-container">
+    <form class="card form" id="loginForm">
+      <h1>Login</h1>
+      <input name="email" type="email" placeholder="Email" required />
+      <input name="password" type="password" placeholder="Password" required />
+      <button class="btn primary" type="submit">Login</button>
+      <p>New here? <a href="./register.html">Create account</a></p>
+      <p class="form-message" id="message"></p>
+    </form>
+  </main>
+  <script src="../assets/js/api/apiClient.js"></script>
+  <script src="../assets/js/pages/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tutorials | Makeup Live</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="../index.html">Makeup Live</a>
+    <nav><a href="./products.html">Products</a><a href="./live.html">Live</a><a href="./favorites.html">Favorites</a></nav>
+  </header>
+  <main class="page">
+    <h1>Tutorials</h1>
+    <div class="filters">
+      <select id="difficultyFilter">
+        <option value="">All levels</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+      <button class="btn secondary" id="applyFilters">Apply</button>
+    </div>
+    <section class="grid" id="tutorialGrid"></section>
+  </main>
+  <script src="../assets/js/api/apiClient.js"></script>
+  <script src="../assets/js/classes/Tutorial.js"></script>
+  <script src="../assets/js/pages/tutorials.js"></script>
+</body>
+</html>
