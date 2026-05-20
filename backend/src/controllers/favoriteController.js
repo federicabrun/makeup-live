@@ -41,14 +41,21 @@ async function listFavorites(req, res, next) {
 
         CASE
           WHEN f.entity_type = 'product' THEN p.brand
-          WHEN f.entity_type = 'tutorial' THEN c.name
+          WHEN f.entity_type = 'tutorial' THEN cr.name
           ELSE NULL
         END AS subtitle,
 
         CASE
-          WHEN f.entity_type = 'product' THEN p.purchase_url
+          WHEN f.entity_type = 'product' THEN p.image_url
+          WHEN f.entity_type = 'tutorial' THEN t.thumbnail_url
           ELSE NULL
-        END AS purchase_url
+        END AS image_url,
+
+        CASE
+          WHEN f.entity_type = 'product' THEN p.purchase_url
+          WHEN f.entity_type = 'tutorial' THEN t.video_url
+          ELSE NULL
+        END AS action_url
 
       FROM favorites f
 
@@ -60,8 +67,8 @@ async function listFavorites(req, res, next) {
         ON f.entity_type = 'tutorial'
         AND f.entity_id = t.id
 
-      LEFT JOIN creators c
-        ON t.creator_id = c.id
+      LEFT JOIN creators cr
+        ON t.creator_id = cr.id
 
       WHERE f.user_id = $1
       ORDER BY f.created_at DESC
