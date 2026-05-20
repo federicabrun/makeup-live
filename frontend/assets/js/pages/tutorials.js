@@ -1,10 +1,5 @@
 const grid = document.getElementById("tutorialGrid");
 
-function buildYoutubeSearchUrl(title) {
-  const query = encodeURIComponent(`${title} makeup tutorial`);
-  return `https://www.youtube.com/results?search_query=${query}`;
-}
-
 async function loadTutorials() {
   const difficulty = document.getElementById("difficultyFilter").value;
   const query = difficulty ? `?difficulty=${difficulty}` : "";
@@ -18,7 +13,7 @@ async function loadTutorials() {
     const difficulty = item.difficulty || "beginner";
     const duration = item.duration_minutes || item.durationMinutes || "";
     const thumbnail = item.thumbnail_url || item.thumbnailUrl || "../assets/img/tutorial-placeholder.jpg";
-    const videoUrl = item.video_url || item.videoUrl || buildYoutubeSearchUrl(title);
+    const videoUrl = item.video_url || item.videoUrl || "";
 
     return `
       <article class="card tutorial-card" data-video-url="${videoUrl}">
@@ -35,14 +30,22 @@ async function loadTutorials() {
         </p>
 
         <div class="tutorial-actions">
-          <a 
-            href="${videoUrl}" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="btn primary watch-video"
-          >
-            Watch video
-          </a>
+          ${
+            videoUrl
+              ? `
+                <a 
+                  href="${videoUrl}" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn primary watch-video"
+                >
+                  Watch tutorial
+                </a>
+              `
+              : `
+                <span class="muted">Video coming soon</span>
+              `
+          }
 
           <button 
             class="btn secondary favorite-btn" 
@@ -92,6 +95,12 @@ document.getElementById("applyFilters").addEventListener("click", loadTutorials)
 loadTutorials().catch(error => {
   grid.innerHTML = `<p>${error.message}</p>`;
 });
+
+
+/* ======================================================
+   YOUTUBE API DISCOVERY
+   ====================================================== */
+
 const youtubeQuery = document.getElementById("youtubeQuery");
 const youtubeEventType = document.getElementById("youtubeEventType");
 const loadYouTubeVideosBtn = document.getElementById("loadYouTubeVideos");
