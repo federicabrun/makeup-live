@@ -92,3 +92,68 @@ document.getElementById("applyFilters").addEventListener("click", loadTutorials)
 loadTutorials().catch(error => {
   grid.innerHTML = `<p>${error.message}</p>`;
 });
+const youtubeQuery = document.getElementById("youtubeQuery");
+const youtubeEventType = document.getElementById("youtubeEventType");
+const loadYouTubeVideosBtn = document.getElementById("loadYouTubeVideos");
+const youtubeVideosGrid = document.getElementById("youtubeVideosGrid");
+
+async function loadYouTubeVideos() {
+  if (!youtubeVideosGrid) return;
+
+  const query = youtubeQuery.value.trim() || "soft glam makeup tutorial";
+  const eventType = youtubeEventType.value;
+
+  const params = new URLSearchParams();
+  params.append("q", query);
+  params.append("maxResults", "8");
+
+  if (eventType) {
+    params.append("eventType", eventType);
+  }
+
+  youtubeVideosGrid.innerHTML = `<p class="muted">Loading YouTube videos...</p>`;
+
+  try {
+    const videos = await api.get(`/youtube/search?${params.toString()}`);
+
+    if (!videos.length) {
+      youtubeVideosGrid.innerHTML = `<p class="muted">No YouTube videos found.</p>`;
+      return;
+    }
+
+    youtubeVideosGrid.innerHTML = videos.map(video => `
+      <article class="card tutorial-card external-product-card">
+        ${
+          video.thumbnail_url
+            ? `<img class="card-img" src="${video.thumbnail_url}" alt="${video.title}" />`
+            : `<div class="external-image-fallback"><span>YouTube Video</span></div>`
+        }
+
+        <span class="tag">YouTube API</span>
+
+        <h3>${video.title}</h3>
+
+        <p class="muted">${video.channel_title || "YouTube creator"}</p>
+
+        <p class="muted">
+          ${video.description ? video.description.slice(0, 120) + "..." : ""}
+        </p>
+
+        <a 
+          href="${video.video_url}" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn primary"
+        >
+          Watch on YouTube
+        </a>
+      </article>
+    `).join("");
+  } catch (error) {
+    youtubeVideosGrid.innerHTML = `<p>${error.message}</p>`;
+  }
+}
+
+if (loadYouTubeVideosBtn) {
+  loadYouTubeVideosBtn.addEventListener("click", loadYouTubeVideos);
+}

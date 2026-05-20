@@ -36,6 +36,30 @@
     </div>
 
     <section class="grid" id="tutorialGrid"></section>
+    <section class="external-section">
+  <h2>YouTube Discovery</h2>
+
+  <p>
+    Search real makeup tutorials from YouTube using an external API integration.
+  </p>
+
+  <div class="filters">
+    <input id="youtubeQuery" placeholder="Try: soft glam makeup tutorial" />
+
+    <select id="youtubeEventType">
+      <option value="">Videos</option>
+      <option value="live">Live now</option>
+      <option value="upcoming">Upcoming lives</option>
+      <option value="completed">Completed lives</option>
+    </select>
+
+    <button class="btn primary" id="loadYouTubeVideos">
+      Search YouTube API
+    </button>
+  </div>
+
+  <section class="grid" id="youtubeVideosGrid"></section>
+</section>
   </main>
 
   <script src="../assets/js/api/apiClient.js"></script>
