@@ -40,32 +40,46 @@
 
     <section class="grid" id="productGrid"></section>
 
-    <section class="external-section">
-      <h2>External Discovery</h2>
+   <section class="external-section">
+  <h2>External Discovery</h2>
 
-      <p>
-        Search real makeup products from an external public API and discover more options by brand or product type.
-      </p>
+  <p>
+    Search real makeup products from an external public API and discover more options by brand or product type.
+  </p>
 
-      <div class="filters">
-        <input id="externalBrand" placeholder="Brand, e.g. maybelline" />
+  <div class="filters">
+    <select id="externalBrand">
+      <option value="maybelline">Maybelline</option>
+      <option value="dior">Dior</option>
+      <option value="covergirl">Covergirl</option>
+      <option value="nyx">NYX</option>
+      <option value="revlon">Revlon</option>
+      <option value="clinique">Clinique</option>
+      <option value="benefit">Benefit</option>
+      <option value="smashbox">Smashbox</option>
+      <option value="l'oreal">L'Oréal</option>
+    </select>
 
-        <select id="externalType">
-          <option value="">All product types</option>
-          <option value="lipstick">Lipstick</option>
-          <option value="mascara">Mascara</option>
-          <option value="foundation">Foundation</option>
-          <option value="eyeshadow">Eyeshadow</option>
-          <option value="blush">Blush</option>
-        </select>
+    <select id="externalType">
+      <option value="">All product types</option>
+      <option value="lipstick">Lipstick</option>
+      <option value="mascara">Mascara</option>
+      <option value="foundation">Foundation</option>
+      <option value="eyeshadow">Eyeshadow</option>
+      <option value="blush">Blush</option>
+    </select>
 
-        <button class="btn primary" id="loadExternalProducts">
-          Search external API
-        </button>
-      </div>
+    <button class="btn primary" id="loadExternalProducts">
+      Search external API
+    </button>
+  </div>
 
-      <section class="grid" id="externalProductsGrid"></section>
-    </section>
+  <p class="muted external-hint">
+    Tip: this external API works best with selected brands such as Dior, Maybelline, Covergirl, NYX, Clinique or Revlon.
+  </p>
+
+  <section class="grid" id="externalProductsGrid"></section>
+</section>
   </main>
 
   <script src="../assets/js/api/apiClient.js"></script>

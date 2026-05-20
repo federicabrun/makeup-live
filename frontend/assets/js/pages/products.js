@@ -33,7 +33,7 @@ const externalProductsGrid = document.getElementById("externalProductsGrid");
 async function loadExternalProducts() {
   if (!externalProductsGrid) return;
 
-  const brand = externalBrand.value.trim();
+  const brand = externalBrand.value;
   const productType = externalType.value;
 
   const params = new URLSearchParams();
