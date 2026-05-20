@@ -15,6 +15,9 @@ const messageRoutes = require("./routes/messageRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 
+const externalRoutes = require("./routes/externalRoutes");
+const youtubeRoutes = require("./routes/youtubeRoutes");
+
 const app = express();
 
 app.use(helmet());
@@ -27,6 +30,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 app.use("/api/auth", authRoutes);
 app.use("/api/tutorials", tutorialRoutes);
 app.use("/api/products", productRoutes);
@@ -35,6 +39,9 @@ app.use("/api/live-sessions", liveRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/profile", profileRoutes);
+
+app.use("/api/external", externalRoutes);
+app.use("/api/youtube", youtubeRoutes);
 
 app.use(errorHandler);
 
