@@ -1373,3 +1373,51 @@ button#logout,
     height: 280px;
   }
 }
+
+/* ======================================================
+   EXTERNAL DISCOVERY - MAKEUP API
+   ====================================================== */
+
+.external-section {
+  width: min(1320px, calc(100% - 14vw));
+  margin: 1rem auto 5rem;
+  padding: 2rem;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(243, 199, 213, 0.9);
+  box-shadow: 0 24px 60px rgba(157, 49, 90, 0.08);
+}
+
+.external-section h2 {
+  font-size: 2.4rem;
+  letter-spacing: -0.05em;
+  margin-bottom: 0.5rem;
+  color: #2d2328;
+}
+
+.external-section > p {
+  color: #7b6570;
+  margin-bottom: 1.5rem;
+  max-width: 720px;
+}
+
+#externalProductsGrid {
+  margin-top: 2rem;
+}
+
+.external-product-card .tag {
+  width: fit-content;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: #ffeaf1;
+  color: #c73f6b;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.9rem;
+}
+
+.external-product-card .btn {
+  margin-top: auto;
+}

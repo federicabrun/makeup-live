@@ -39,6 +39,33 @@
     </div>
 
     <section class="grid" id="productGrid"></section>
+
+    <section class="external-section">
+      <h2>External Discovery</h2>
+
+      <p>
+        Search real makeup products from an external public API and discover more options by brand or product type.
+      </p>
+
+      <div class="filters">
+        <input id="externalBrand" placeholder="Brand, e.g. maybelline" />
+
+        <select id="externalType">
+          <option value="">All product types</option>
+          <option value="lipstick">Lipstick</option>
+          <option value="mascara">Mascara</option>
+          <option value="foundation">Foundation</option>
+          <option value="eyeshadow">Eyeshadow</option>
+          <option value="blush">Blush</option>
+        </select>
+
+        <button class="btn primary" id="loadExternalProducts">
+          Search external API
+        </button>
+      </div>
+
+      <section class="grid" id="externalProductsGrid"></section>
+    </section>
   </main>
 
   <script src="../assets/js/api/apiClient.js"></script>
