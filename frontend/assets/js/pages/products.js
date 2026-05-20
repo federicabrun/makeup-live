@@ -17,13 +17,22 @@ async function loadProducts() {
         entity_type: btn.dataset.type,
         entity_id: Number(btn.dataset.id)
       });
+
       btn.textContent = "Saved";
     });
   });
 }
 
 document.getElementById("applyFilters").addEventListener("click", loadProducts);
-loadProducts().catch((error) => productGrid.innerHTML = `<p>${error.message}</p>`);
+
+loadProducts().catch((error) => {
+  productGrid.innerHTML = `<p>${error.message}</p>`;
+});
+
+
+/* ======================================================
+   EXTERNAL DISCOVERY - MAKEUP API
+   ====================================================== */
 
 const externalBrand = document.getElementById("externalBrand");
 const externalType = document.getElementById("externalType");
@@ -33,12 +42,12 @@ const externalProductsGrid = document.getElementById("externalProductsGrid");
 async function loadExternalProducts() {
   if (!externalProductsGrid) return;
 
-  const brand = externalBrand.value;
+  const brandFilter = externalBrand.value;
   const productType = externalType.value;
 
   const params = new URLSearchParams();
 
-  if (brand) params.append("brand", brand);
+  if (brandFilter) params.append("brand", brandFilter);
   if (productType) params.append("product_type", productType);
 
   const query = params.toString() ? `?${params.toString()}` : "";
@@ -61,12 +70,30 @@ async function loadExternalProducts() {
       const productLink = product.product_link || "";
       const price = product.price || "";
 
+      const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(
+        `${brand} ${name} makeup product`
+      )}`;
+
       return `
         <article class="card product-card external-product-card">
           ${
             imageUrl
-              ? `<img class="card-img" src="${imageUrl}" alt="${name}" />`
-              : ""
+              ? `
+                <img 
+                  class="card-img" 
+                  src="${imageUrl}" 
+                  alt="${name}" 
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                />
+                <div class="external-image-fallback" style="display: none;">
+                  <span>External Product</span>
+                </div>
+              `
+              : `
+                <div class="external-image-fallback">
+                  <span>External Product</span>
+                </div>
+              `
           }
 
           <span class="tag">External API</span>
@@ -79,20 +106,31 @@ async function loadExternalProducts() {
 
           ${price ? `<p><strong>$${price}</strong></p>` : ""}
 
-          ${
-            productLink
-              ? `
-                <a 
-                  href="${productLink}" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="btn primary"
-                >
-                  View external product
-                </a>
-              `
-              : ""
-          }
+          <div class="external-actions">
+            ${
+              productLink
+                ? `
+                  <a 
+                    href="${productLink}" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="btn secondary"
+                  >
+                    View API source
+                  </a>
+                `
+                : ""
+            }
+
+            <a 
+              href="${searchUrl}" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn primary"
+            >
+              Search product online
+            </a>
+          </div>
         </article>
       `;
     }).join("");

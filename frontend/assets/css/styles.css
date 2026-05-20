@@ -1421,3 +1421,13 @@ button#logout,
 .external-product-card .btn {
   margin-top: auto;
 }
+.external-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.external-actions .btn {
+  text-decoration: none;
+}
