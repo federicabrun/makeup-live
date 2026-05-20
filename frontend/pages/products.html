@@ -5,41 +5,28 @@
   <title>Products | Makeup Live</title>
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
-<body>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Favorites | Makeup Live</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
+
 <body>
   <header class="navbar">
-  <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
+    <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
 
-  <nav class="nav-links">
-    <a href="./tutorials.html">Tutorials</a>
-    <a href="./products.html">Products</a>
-    <a href="./live.html">Live</a>
-    <a href="./favorites.html">Favorites</a>
-    <a href="./profile.html">Profile</a>
-    <a href="./login.html" class="nav-login">Login</a>
-    <a href="./register.html" class="nav-register">Create account</a>
-  </nav>
-</header>
-  <main class="page">
-    <h1>My Favorites</h1>
-    <section class="grid" id="favoritesGrid"></section>
-  </main>
-  <script src="../assets/js/api/apiClient.js"></script>
-  <script src="../assets/js/pages/favorites.js"></script>
-</body>
-</html>
+    <nav class="nav-links">
+      <a href="./tutorials.html">Tutorials</a>
+      <a href="./products.html">Products</a>
+      <a href="./live.html">Live</a>
+      <a href="./favorites.html">Favorites</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./login.html" class="nav-login">Login</a>
+      <a href="./register.html" class="nav-register">Create account</a>
+    </nav>
+  </header>
 
   <main class="page">
     <h1>Products</h1>
+
     <div class="filters">
       <input id="brandFilter" placeholder="Brand" />
+
       <select id="skinFilter">
         <option value="">All skin types</option>
         <option value="dry">Dry</option>
@@ -47,10 +34,13 @@
         <option value="mixed">Mixed</option>
         <option value="normal">Normal</option>
       </select>
+
       <button class="btn secondary" id="applyFilters">Apply</button>
     </div>
+
     <section class="grid" id="productGrid"></section>
   </main>
+
   <script src="../assets/js/api/apiClient.js"></script>
   <script src="../assets/js/classes/Product.js"></script>
   <script src="../assets/js/pages/products.js"></script>

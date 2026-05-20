@@ -6,46 +6,40 @@
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Favorites | Makeup Live</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
-<body>
   <header class="navbar">
-  <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
+    <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
 
-  <nav class="nav-links">
-    <a href="./tutorials.html">Tutorials</a>
-    <a href="./products.html">Products</a>
-    <a href="./live.html">Live</a>
-    <a href="./favorites.html">Favorites</a>
-    <a href="./profile.html">Profile</a>
-    <a href="./login.html" class="nav-login">Login</a>
-    <a href="./register.html" class="nav-register">Create account</a>
-  </nav>
-</header>
-  <main class="page">
-    <h1>My Favorites</h1>
-    <section class="grid" id="favoritesGrid"></section>
-  </main>
-  <script src="../assets/js/api/apiClient.js"></script>
-  <script src="../assets/js/pages/favorites.js"></script>
-</body>
-</html>
+    <nav class="nav-links">
+      <a href="./tutorials.html">Tutorials</a>
+      <a href="./products.html">Products</a>
+      <a href="./live.html">Live</a>
+      <a href="./favorites.html">Favorites</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./login.html" class="nav-login">Login</a>
+      <a href="./register.html" class="nav-register">Create account</a>
+    </nav>
+  </header>
 
-  <main class="auth-container">
-    <form class="card form" id="loginForm">
+  <main class="page auth-page">
+    <section class="auth-card">
       <h1>Login</h1>
-      <input name="email" type="email" placeholder="Email" required />
-      <input name="password" type="password" placeholder="Password" required />
-      <button class="btn primary" type="submit">Login</button>
-      <p>New here? <a href="./register.html">Create account</a></p>
-      <p class="form-message" id="message"></p>
-    </form>
+
+      <form id="loginForm" class="auth-form">
+        <input id="email" type="email" placeholder="Email" required />
+        <input id="password" type="password" placeholder="Password" required />
+
+        <button class="btn primary" type="submit">Login</button>
+      </form>
+
+      <p class="auth-helper">
+        New here?
+        <a href="./register.html">Create account</a>
+      </p>
+
+      <p id="loginMessage" class="form-message"></p>
+    </section>
   </main>
+
   <script src="../assets/js/api/apiClient.js"></script>
   <script src="../assets/js/pages/login.js"></script>
 </body>

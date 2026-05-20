@@ -5,39 +5,25 @@
   <title>Tutorials | Makeup Live</title>
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
-<body>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Favorites | Makeup Live</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
+
 <body>
   <header class="navbar">
-  <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
+    <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
 
-  <nav class="nav-links">
-    <a href="./tutorials.html">Tutorials</a>
-    <a href="./products.html">Products</a>
-    <a href="./live.html">Live</a>
-    <a href="./favorites.html">Favorites</a>
-    <a href="./profile.html">Profile</a>
-    <a href="./login.html" class="nav-login">Login</a>
-    <a href="./register.html" class="nav-register">Create account</a>
-  </nav>
-</header>
-  <main class="page">
-    <h1>My Favorites</h1>
-    <section class="grid" id="favoritesGrid"></section>
-  </main>
-  <script src="../assets/js/api/apiClient.js"></script>
-  <script src="../assets/js/pages/favorites.js"></script>
-</body>
-</html>
+    <nav class="nav-links">
+      <a href="./tutorials.html">Tutorials</a>
+      <a href="./products.html">Products</a>
+      <a href="./live.html">Live</a>
+      <a href="./favorites.html">Favorites</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./login.html" class="nav-login">Login</a>
+      <a href="./register.html" class="nav-register">Create account</a>
+    </nav>
+  </header>
 
   <main class="page">
     <h1>Tutorials</h1>
+
     <div class="filters">
       <select id="difficultyFilter">
         <option value="">All levels</option>
@@ -45,10 +31,13 @@
         <option value="intermediate">Intermediate</option>
         <option value="advanced">Advanced</option>
       </select>
+
       <button class="btn secondary" id="applyFilters">Apply</button>
     </div>
+
     <section class="grid" id="tutorialGrid"></section>
   </main>
+
   <script src="../assets/js/api/apiClient.js"></script>
   <script src="../assets/js/classes/Tutorial.js"></script>
   <script src="../assets/js/pages/tutorials.js"></script>

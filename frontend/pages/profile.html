@@ -5,52 +5,44 @@
   <title>Profile | Makeup Live</title>
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
-<body>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Favorites | Makeup Live</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
+
 <body>
   <header class="navbar">
-  <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
+    <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
 
-  <nav class="nav-links">
-    <a href="./tutorials.html">Tutorials</a>
-    <a href="./products.html">Products</a>
-    <a href="./live.html">Live</a>
-    <a href="./favorites.html">Favorites</a>
-    <a href="./profile.html">Profile</a>
-    <a href="./login.html" class="nav-login">Login</a>
-    <a href="./register.html" class="nav-register">Create account</a>
-  </nav>
-</header>
-  <main class="page">
-    <h1>My Favorites</h1>
-    <section class="grid" id="favoritesGrid"></section>
-  </main>
-  <script src="../assets/js/api/apiClient.js"></script>
-  <script src="../assets/js/pages/favorites.js"></script>
-</body>
-</html>
+    <nav class="nav-links">
+      <a href="./tutorials.html">Tutorials</a>
+      <a href="./products.html">Products</a>
+      <a href="./live.html">Live</a>
+      <a href="./favorites.html">Favorites</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./login.html" class="nav-login">Login</a>
+      <a href="./register.html" class="nav-register">Create account</a>
+    </nav>
+  </header>
 
-  <main class="auth-container">
-    <form class="card form" id="profileForm">
+  <main class="page auth-page">
+    <section class="auth-card">
       <h1>Profile</h1>
-      <input name="name" id="name" placeholder="Name" />
-      <select name="skin_type" id="skin_type">
-        <option value="normal">Normal</option>
-        <option value="dry">Dry</option>
-        <option value="oily">Oily</option>
-        <option value="mixed">Mixed</option>
-      </select>
-      <button class="btn primary" type="submit">Save changes</button>
-      <button class="btn secondary" type="button" id="logoutBtn">Logout</button>
-      <p class="form-message" id="message"></p>
-    </form>
+
+      <form class="auth-form" id="profileForm">
+        <input name="name" id="name" placeholder="Name" />
+
+        <select name="skin_type" id="skin_type">
+          <option value="normal">Normal</option>
+          <option value="dry">Dry</option>
+          <option value="oily">Oily</option>
+          <option value="mixed">Mixed</option>
+        </select>
+
+        <button class="btn primary" type="submit">Save changes</button>
+        <button class="btn secondary" type="button" id="logoutBtn">Logout</button>
+
+        <p class="form-message" id="message"></p>
+      </form>
+    </section>
   </main>
+
   <script src="../assets/js/api/apiClient.js"></script>
   <script src="../assets/js/pages/profile.js"></script>
 </body>
