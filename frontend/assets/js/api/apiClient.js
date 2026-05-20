@@ -1,5 +1,5 @@
 class ApiClient {
- constructor(baseUrl = "https://makeup-live.onrender.com/api") {
+constructor(baseUrl = "https://makeup-live.onrender.com/api") {
     this.baseUrl = baseUrl;
   }
 
