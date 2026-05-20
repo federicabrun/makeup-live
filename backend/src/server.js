@@ -1,10 +1,14 @@
 require("dotenv").config();
+
 const http = require("http");
 const { Server } = require("socket.io");
+
 const app = require("./app");
 const registerChatSocket = require("./sockets/chatSocket");
+const externalRoutes = require("./routes/externalRoutes");
 
 const PORT = process.env.PORT || 4000;
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -15,6 +19,9 @@ const io = new Server(server, {
 });
 
 app.set("io", io);
+
+app.use("/api/external", externalRoutes);
+
 registerChatSocket(io);
 
 server.listen(PORT, () => {
