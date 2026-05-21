@@ -1,5 +1,10 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 
+const serverUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://makeup-live.onrender.com"
+    : `http://localhost:${process.env.PORT || 4000}`;
+
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -9,7 +14,13 @@ const options = {
       description: "API documentation for Makeup Live academic full-stack project"
     },
     servers: [
-      { url: "http://localhost:4000", description: "Local server" }
+      {
+        url: serverUrl,
+        description:
+          process.env.NODE_ENV === "production"
+            ? "Production server"
+            : "Local server"
+      }
     ],
     components: {
       securitySchemes: {
@@ -26,7 +37,8 @@ const options = {
           properties: {
             name: { type: "string", example: "Luna Perez" },
             email: { type: "string", example: "luna@example.com" },
-            password: { type: "string", example: "password123" }
+            password: { type: "string", example: "password123" },
+            skin_type: { type: "string", example: "normal" }
           }
         },
         LoginRequest: {
@@ -41,7 +53,11 @@ const options = {
           type: "object",
           required: ["entity_type", "entity_id"],
           properties: {
-            entity_type: { type: "string", enum: ["product", "tutorial"], example: "product" },
+            entity_type: {
+              type: "string",
+              enum: ["product", "tutorial"],
+              example: "product"
+            },
             entity_id: { type: "integer", example: 1 }
           }
         },
