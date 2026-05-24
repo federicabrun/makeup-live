@@ -1595,3 +1595,89 @@ button#logout,
   flex-wrap: wrap;
   margin-top: 1.5rem;
 }
+
+/* ======================================================
+   NAVBAR FIX
+   ====================================================== */
+
+.navbar {
+  position: relative;
+  z-index: 20;
+  min-height: 88px;
+  padding: 1.2rem 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.3rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  white-space: nowrap;
+}
+
+.hero,
+.home-hero {
+  padding-top: 3rem;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+    gap: 0.9rem;
+  }
+}
+/* ======================================================
+   SKIN QUIZ REMINDER
+   ====================================================== */
+
+.skin-reminder {
+  margin-top: 1.4rem;
+  padding: 1rem 1.2rem;
+  border-radius: 24px;
+  background: #fff6f8;
+  border: 1px solid rgba(243, 199, 213, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  color: #3b2931;
+  box-shadow: 0 16px 35px rgba(157, 49, 90, 0.08);
+}
+
+.skin-reminder strong {
+  color: #9d315a;
+}
+
+.skin-reminder span {
+  color: #7b6570;
+}
+
+.skin-reminder a {
+  color: white;
+  background: linear-gradient(135deg, #df4f7c, #9d315a);
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.skin-reminder.compact {
+  margin: 0 0 1.3rem;
+  font-size: 0.95rem;
+}
