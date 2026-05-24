@@ -1,6 +1,16 @@
-document.getElementById("registerForm").addEventListener("submit", async (event) => {
+const registerForm = document.getElementById("registerForm");
+const message = document.getElementById("message");
+
+const savedSkinType = localStorage.getItem("suggested_skin_type");
+const skinTypeSelect = document.querySelector('select[name="skin_type"]');
+
+if (savedSkinType && skinTypeSelect) {
+  skinTypeSelect.value = savedSkinType;
+}
+
+registerForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const message = document.getElementById("message");
+
   const formData = new FormData(event.target);
 
   try {
@@ -12,7 +22,12 @@ document.getElementById("registerForm").addEventListener("submit", async (event)
     });
 
     message.textContent = "Account created. You can now login.";
-    event.target.reset();
+
+    localStorage.removeItem("suggested_skin_type");
+
+    setTimeout(() => {
+      window.location.href = "./login.html";
+    }, 900);
   } catch (error) {
     message.textContent = error.message;
   }
