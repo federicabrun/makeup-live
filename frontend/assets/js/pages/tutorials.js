@@ -2,7 +2,14 @@ const grid = document.getElementById("tutorialGrid");
 
 async function loadTutorials() {
   const difficulty = document.getElementById("difficultyFilter").value;
-  const query = difficulty ? `?difficulty=${difficulty}` : "";
+  const occasion = document.getElementById("occasionFilter").value;
+
+  const params = new URLSearchParams();
+
+  if (difficulty) params.set("difficulty", difficulty);
+  if (occasion) params.set("occasion", occasion);
+
+  const query = params.toString() ? `?${params.toString()}` : "";
 
   const tutorials = await api.get(`/tutorials${query}`);
 
@@ -11,15 +18,23 @@ async function loadTutorials() {
     const description = item.description || "";
     const creator = item.creator_name || item.creatorName || item.creator || "Creator";
     const difficulty = item.difficulty || "beginner";
+    const occasion = item.occasion || "";
     const duration = item.duration_minutes || item.durationMinutes || "";
     const thumbnail = item.thumbnail_url || item.thumbnailUrl || "../assets/img/tutorial-placeholder.jpg";
     const videoUrl = item.video_url || item.videoUrl || "";
+
+    const occasionLabel = occasion
+      ? occasion.replace("_", " ")
+      : "";
 
     return `
       <article class="card tutorial-card" data-video-url="${videoUrl}">
         <img src="${thumbnail}" alt="${title}" />
 
-        <span class="tag">${difficulty}</span>
+        <div class="tag-row">
+          <span class="tag">${difficulty}</span>
+          ${occasionLabel ? `<span class="tag">${occasionLabel}</span>` : ""}
+        </div>
 
         <h3>${title}</h3>
 
@@ -113,6 +128,7 @@ async function loadYouTubeVideos() {
   const eventType = youtubeEventType.value;
 
   const params = new URLSearchParams();
+
   params.append("q", query);
   params.append("maxResults", "8");
 

@@ -1504,3 +1504,10 @@ button#logout,
   padding: 1rem;
   font-family: inherit;
 }
+
+.tag-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
