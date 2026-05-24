@@ -1682,15 +1682,15 @@ button#logout,
   font-size: 0.95rem;
 }
 /* ======================================================
-   HOME HERO OVERLAP FIX
+   HOME HERO BALANCED LAYOUT FIX
    ====================================================== */
 
 .hero-premium {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(360px, 0.95fr) minmax(420px, 1.05fr);
+  grid-template-columns: minmax(430px, 1fr) minmax(430px, 0.9fr);
   align-items: center;
-  gap: 5rem;
+  gap: 2.5rem;
   padding-left: 7vw;
   padding-right: 7vw;
   overflow: hidden;
@@ -1699,49 +1699,46 @@ button#logout,
 .hero-copy {
   position: relative;
   z-index: 5;
-  max-width: 620px;
+  max-width: 650px;
 }
 
 .hero-copy h1 {
-  max-width: 620px;
+  max-width: 640px;
 }
 
 .hero-visual {
   position: relative;
   z-index: 2;
-  min-height: 520px;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 2rem;
+  margin-left: 0;
 }
 
 .live-card {
   position: relative;
   z-index: 3;
-  transform: translateX(35px);
+  transform: translateX(0);
 }
 
 .product-stage {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  left: 2rem;
+  z-index: 2;
 }
 
 .pink-arch {
   z-index: 0;
 }
 
-/* Responsive fix */
 @media (max-width: 1050px) {
   .hero-premium {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
-  .hero-copy {
-    max-width: 100%;
-  }
-
+  .hero-copy,
   .hero-copy h1 {
     max-width: 100%;
   }
@@ -1749,6 +1746,11 @@ button#logout,
   .hero-visual {
     margin-left: 0;
     min-height: 420px;
+  }
+
+  .product-stage {
+    position: relative;
+    left: 0;
   }
 
   .live-card {
