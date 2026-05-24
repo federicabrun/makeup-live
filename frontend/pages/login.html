@@ -31,6 +31,25 @@
         <button class="btn primary" type="submit">Login</button>
       </form>
 
+      <div class="auth-divider">or</div>
+
+      <div
+        id="g_id_onload"
+        data-client_id="624479487674-flq4jmje6q6qoe7tk7d9553r6qno1dns.apps.googleusercontent.com"
+        data-callback="handleGoogleCredentialResponse"
+        data-auto_prompt="false">
+      </div>
+
+      <div
+        class="g_id_signin"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="signin_with"
+        data-shape="pill"
+        data-logo_alignment="left">
+      </div>
+
       <p class="auth-helper">
         New here?
         <a href="./register.html">Create account</a>
@@ -40,6 +59,7 @@
     </section>
   </main>
 
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="../assets/js/api/apiClient.js"></script>
   <script src="../assets/js/pages/login.js"></script>
 </body>

@@ -1,5 +1,10 @@
 const router = require("express").Router();
-const { register, login } = require("../controllers/authController");
+
+const {
+  register,
+  login,
+  googleLogin
+} = require("../controllers/authController");
 
 /**
  * @swagger
@@ -36,5 +41,33 @@ router.post("/register", register);
  *         description: JWT token and user profile
  */
 router.post("/login", login);
+
+/**
+ * @swagger
+ * /api/auth/google:
+ *   post:
+ *     summary: Login or create account with Google
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - credential
+ *             properties:
+ *               credential:
+ *                 type: string
+ *                 description: Google ID token returned by Google Identity Services
+ *     responses:
+ *       200:
+ *         description: JWT token and user profile
+ *       400:
+ *         description: Google credential is required
+ *       401:
+ *         description: Invalid Google account
+ */
+router.post("/google", googleLogin);
 
 module.exports = router;

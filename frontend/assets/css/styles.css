@@ -1431,3 +1431,26 @@ button#logout,
 .external-actions .btn {
   text-decoration: none;
 }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #9b7c89;
+  font-weight: 700;
+  margin: 1.4rem 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(199, 63, 107, 0.2);
+}
+
+.g_id_signin {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
