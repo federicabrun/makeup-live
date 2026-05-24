@@ -1,3 +1,5 @@
+console.log("Skin Agent visual question v3 loaded");
+
 const skinChat = document.getElementById("skinChat");
 const skinOptions = document.getElementById("skinOptions");
 const skinResult = document.getElementById("skinResult");
@@ -14,6 +16,33 @@ const questions = [
       { label: "Shiny or greasy", value: "oily" },
       { label: "Oily in some areas, dry in others", value: "mixed" },
       { label: "Comfortable and balanced", value: "normal" }
+    ]
+  },
+  {
+    id: "visual_skin",
+    text: "Which image looks closest to your skin?",
+    imageQuestion: true,
+    options: [
+      {
+        label: "Dry skin",
+        value: "dry",
+        image: "../assets/img/skin-types/dry-skin.jpg"
+      },
+      {
+        label: "Oily skin",
+        value: "oily",
+        image: "../assets/img/skin-types/oily-skin.jpg.webp"
+      },
+      {
+        label: "Mixed skin",
+        value: "mixed",
+        image: "../assets/img/skin-types/mixed-skin.jpg"
+      },
+      {
+        label: "Normal skin",
+        value: "normal",
+        image: "../assets/img/skin-types/normal-skin.jpg.webp"
+      }
     ]
   },
   {
@@ -65,10 +94,25 @@ function showQuestion() {
 
   addMessage(question.text, "agent");
 
+  if (question.imageQuestion) {
+    skinOptions.classList.add("image-options");
+  } else {
+    skinOptions.classList.remove("image-options");
+  }
+
   question.options.forEach(option => {
     const button = document.createElement("button");
-    button.className = "btn secondary skin-option-btn";
-    button.textContent = option.label;
+
+    if (question.imageQuestion) {
+      button.className = "skin-image-option";
+      button.innerHTML = `
+        <img src="${option.image}" alt="${option.label}" />
+        <span>${option.label}</span>
+      `;
+    } else {
+      button.className = "btn secondary skin-option-btn";
+      button.textContent = option.label;
+    }
 
     button.addEventListener("click", () => {
       addMessage(option.label, "user");
@@ -133,6 +177,7 @@ function getResultText(type) {
 
 function showResult() {
   skinOptions.innerHTML = "";
+  skinOptions.classList.remove("image-options");
 
   const skinType = calculateSkinType();
   const result = getResultText(skinType);
@@ -146,7 +191,7 @@ function showResult() {
     <h2>${result.label}</h2>
     <p>${result.description}</p>
     <p class="muted">
-      We saved this suggestion so you can use it when creating your account.
+      This is a suggestion based on your answers. We saved it so you can use it when creating your account.
     </p>
   `;
 }
@@ -156,10 +201,15 @@ function restartQuiz() {
   currentQuestionIndex = 0;
   skinChat.innerHTML = "";
   skinOptions.innerHTML = "";
+  skinOptions.classList.remove("image-options");
   skinResult.style.display = "none";
   skinResult.innerHTML = "";
 
-  addMessage("Hi! I am your Skin Type Assistant. Let’s find your skin type before you create an account.", "agent");
+  addMessage(
+    "Hi! I am your Skin Type Assistant. Let’s find your skin type before you create an account.",
+    "agent"
+  );
+
   showQuestion();
 }
 
