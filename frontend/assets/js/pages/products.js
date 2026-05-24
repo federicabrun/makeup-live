@@ -9,7 +9,10 @@ async function loadProducts() {
   if (skin) params.set("skin_type", skin);
 
   const products = await api.get(`/products?${params.toString()}`);
-  productGrid.innerHTML = products.map((item) => new Product(item).render()).join("");
+
+  productGrid.innerHTML = products
+    .map((item) => new Product(item).render())
+    .join("");
 
   document.querySelectorAll(".favorite-btn").forEach((btn) => {
     btn.addEventListener("click", async () => {
@@ -116,7 +119,7 @@ async function loadExternalProducts() {
                     rel="noopener noreferrer" 
                     class="btn secondary"
                   >
-                    View API source
+                    Buy product
                   </a>
                 `
                 : ""
@@ -128,7 +131,7 @@ async function loadExternalProducts() {
               rel="noopener noreferrer" 
               class="btn primary"
             >
-              Search product online
+              Find product online
             </a>
           </div>
         </article>
