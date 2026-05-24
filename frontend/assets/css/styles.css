@@ -1719,7 +1719,7 @@ button#logout,
 .live-card {
   position: relative;
   z-index: 3;
-  transform: translateX(50px);
+  transform: translateX(35px);
 }
 
 .product-stage {
