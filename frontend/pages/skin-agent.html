@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Skin Type Assistant | Makeup Live</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <a class="brand" href="../index.html">Makeup <strong>Live</strong></a>
+
+    <nav class="nav-links">
+      <a href="./tutorials.html">Tutorials</a>
+      <a href="./products.html">Products</a>
+      <a href="./live.html">Live</a>
+      <a href="./skin-agent.html">Skin Quiz</a>
+      <a href="./favorites.html">Favorites</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./login.html" class="nav-login">Login</a>
+      <a href="./register.html" class="nav-register">Create account</a>
+    </nav>
+  </header>
+
+  <main class="page auth-page">
+    <section class="skin-agent-card">
+      <span class="tag">Before login</span>
+
+      <h1>Skin Type Assistant</h1>
+
+      <p class="muted">
+        Answer a few quick questions and we will help you identify your skin type before creating your account.
+      </p>
+
+      <div id="skinChat" class="skin-chat"></div>
+
+      <div id="skinOptions" class="skin-options"></div>
+
+      <div id="skinResult" class="skin-result" style="display: none;"></div>
+
+      <div class="skin-agent-actions">
+        <button class="btn secondary" id="restartSkinQuiz" type="button">
+          Restart
+        </button>
+
+        <a class="btn primary" href="./register.html">
+          Create account
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/pages/skinAgent.js"></script>
+</body>
+</html>
