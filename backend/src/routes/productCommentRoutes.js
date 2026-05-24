@@ -5,7 +5,7 @@ const {
   createProductComment
 } = require("../controllers/productCommentController");
 
-const auth = require("../middlewares/auth");
+const auth = require("../middlewares/authMiddleware");
 
 /**
  * @swagger
