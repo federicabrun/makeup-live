@@ -39,51 +39,52 @@
     </div>
 
     <section class="grid" id="productGrid"></section>
+
     <section class="comments-panel card" id="commentsPanel" style="display: none;">
-  <h2 id="commentsTitle">Product comments</h2>
+      <h2 id="commentsTitle">Product comments</h2>
 
-  <div id="commentsList" class="comments-list"></div>
+      <div id="commentsList" class="comments-list"></div>
 
-  <form id="commentForm" class="comment-form">
-    <textarea id="commentInput" placeholder="Write a comment..." required></textarea>
-    <button class="btn primary" type="submit">Post comment</button>
-  </form>
+      <form id="commentForm" class="comment-form">
+        <textarea id="commentInput" placeholder="Write a comment..." required></textarea>
+        <button class="btn primary" type="submit">Post comment</button>
+      </form>
 
-  <p id="commentMessage" class="form-message"></p>
-</section>
+      <p id="commentMessage" class="form-message"></p>
+    </section>
 
-   <section class="external-section">
-  <h2>External Discovery</h2>
+    <section class="external-section">
+      <h2>External Discovery</h2>
 
-  <div class="filters">
-    <select id="externalBrand">
-      <option value="maybelline">Maybelline</option>
-      <option value="dior">Dior</option>
-      <option value="covergirl">Covergirl</option>
-      <option value="nyx">NYX</option>
-      <option value="revlon">Revlon</option>
-      <option value="clinique">Clinique</option>
-      <option value="benefit">Benefit</option>
-      <option value="smashbox">Smashbox</option>
-      <option value="l'oreal">L'Oréal</option>
-    </select>
+      <div class="filters">
+        <select id="externalBrand">
+          <option value="maybelline">Maybelline</option>
+          <option value="dior">Dior</option>
+          <option value="covergirl">Covergirl</option>
+          <option value="nyx">NYX</option>
+          <option value="revlon">Revlon</option>
+          <option value="clinique">Clinique</option>
+          <option value="benefit">Benefit</option>
+          <option value="smashbox">Smashbox</option>
+          <option value="l'oreal">L'Oréal</option>
+        </select>
 
-    <select id="externalType">
-      <option value="">All product types</option>
-      <option value="lipstick">Lipstick</option>
-      <option value="mascara">Mascara</option>
-      <option value="foundation">Foundation</option>
-      <option value="eyeshadow">Eyeshadow</option>
-      <option value="blush">Blush</option>
-    </select>
+        <select id="externalType">
+          <option value="">All product types</option>
+          <option value="lipstick">Lipstick</option>
+          <option value="mascara">Mascara</option>
+          <option value="foundation">Foundation</option>
+          <option value="eyeshadow">Eyeshadow</option>
+          <option value="blush">Blush</option>
+        </select>
 
-  <button class="btn primary" id="loadExternalProducts">
-  Search
-</button>
-  </div>
+        <button class="btn primary" id="loadExternalProducts">
+          Search
+        </button>
+      </div>
 
-  <section class="grid" id="externalProductsGrid"></section>
-</section>
+      <section class="grid" id="externalProductsGrid"></section>
+    </section>
   </main>
 
   <script src="../assets/js/api/apiClient.js"></script>
