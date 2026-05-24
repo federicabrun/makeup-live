@@ -1454,3 +1454,53 @@ button#logout,
   display: flex;
   justify-content: center;
 }
+
+/* ======================================================
+   PRODUCT COMMENTS
+   ====================================================== */
+
+.comments-panel {
+  width: min(980px, calc(100% - 14vw));
+  margin: 2rem auto 4rem;
+  padding: 2rem;
+}
+
+.comments-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.comments-list {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.comment-item {
+  padding: 1rem 1.2rem;
+  border-radius: 22px;
+  background: #fff6f8;
+  border: 1px solid rgba(243, 199, 213, 0.9);
+}
+
+.comment-item strong {
+  color: #9d315a;
+}
+
+.comment-item p {
+  margin: 0.5rem 0;
+}
+
+.comment-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.comment-form textarea {
+  min-height: 110px;
+  resize: vertical;
+  border-radius: 22px;
+  border: 1px solid rgba(243, 199, 213, 0.9);
+  padding: 1rem;
+  font-family: inherit;
+}

@@ -1,5 +1,15 @@
 const productGrid = document.getElementById("productGrid");
 
+const commentsPanel = document.getElementById("commentsPanel");
+const commentsTitle = document.getElementById("commentsTitle");
+const commentsList = document.getElementById("commentsList");
+const commentForm = document.getElementById("commentForm");
+const commentInput = document.getElementById("commentInput");
+const commentMessage = document.getElementById("commentMessage");
+
+let selectedProductId = null;
+let selectedProductName = "";
+
 async function loadProducts() {
   const brand = document.getElementById("brandFilter").value;
   const skin = document.getElementById("skinFilter").value;
@@ -23,6 +33,83 @@ async function loadProducts() {
 
       btn.textContent = "Saved";
     });
+  });
+
+  document.querySelectorAll(".comments-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      selectedProductId = Number(btn.dataset.id);
+
+      const card = btn.closest(".product-card") || btn.closest(".card");
+      selectedProductName = card?.querySelector("h3")?.textContent || "Product";
+
+      await loadProductComments(selectedProductId, selectedProductName);
+    });
+  });
+}
+
+async function loadProductComments(productId, productName) {
+  if (!commentsPanel) return;
+
+  commentsPanel.style.display = "block";
+  commentsTitle.textContent = `Comments for ${productName}`;
+  commentsList.innerHTML = `<p class="muted">Loading comments...</p>`;
+  commentMessage.textContent = "";
+
+  try {
+    const comments = await api.get(`/products/${productId}/comments`);
+
+    if (!comments.length) {
+      commentsList.innerHTML = `
+        <p class="muted">No comments yet. Be the first to comment.</p>
+      `;
+    } else {
+      commentsList.innerHTML = comments.map(comment => `
+        <article class="comment-item">
+          <strong>${comment.user_name || "User"}</strong>
+          <p>${comment.comment_text}</p>
+          <span class="muted">
+            ${new Date(comment.created_at).toLocaleString()}
+          </span>
+        </article>
+      `).join("");
+    }
+
+    commentsPanel.scrollIntoView({ behavior: "smooth" });
+  } catch (error) {
+    commentsList.innerHTML = `<p>${error.message}</p>`;
+  }
+}
+
+if (commentForm) {
+  commentForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!selectedProductId) {
+      commentMessage.textContent = "Please select a product first.";
+      return;
+    }
+
+    const text = commentInput.value.trim();
+
+    if (!text) {
+      commentMessage.textContent = "Comment cannot be empty.";
+      return;
+    }
+
+    commentMessage.textContent = "Posting comment...";
+
+    try {
+      await api.post(`/products/${selectedProductId}/comments`, {
+        comment_text: text
+      });
+
+      commentInput.value = "";
+      commentMessage.textContent = "Comment posted.";
+
+      await loadProductComments(selectedProductId, selectedProductName);
+    } catch (error) {
+      commentMessage.textContent = error.message || "Could not post comment. Please login first.";
+    }
   });
 }
 

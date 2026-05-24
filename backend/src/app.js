@@ -17,6 +17,7 @@ const profileRoutes = require("./routes/profileRoutes");
 
 const externalRoutes = require("./routes/externalRoutes");
 const youtubeRoutes = require("./routes/youtubeRoutes");
+const productCommentRoutes = require("./routes/productCommentRoutes");
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/api/auth", authRoutes);
 app.use("/api/tutorials", tutorialRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/products", productCommentRoutes);
 app.use("/api/favorites", favoriteRoutes);
 app.use("/api/live-sessions", liveRoutes);
 app.use("/api/messages", messageRoutes);
